@@ -6,15 +6,10 @@
 module.exports = {
 
   development: {
-    client: 'mysql',
+    client: 'sqlite3',
     connection: {
-      host : 'localhost',
-      port : 3306,
-      user : 'root',
-      password : '215114',
-      database : 'cte'
+      filename: './dev.sqlite3'
     },
-   
     migrations : {
       directory: './src/database/migrations'
     }

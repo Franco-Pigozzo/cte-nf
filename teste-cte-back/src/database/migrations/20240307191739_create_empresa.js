@@ -3,11 +3,11 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable("empresa", (table) => {
+    return knex.schema.createTable("empresas", (table) => {
       table.string("cnpj").notNullable();
       table.increments("id").primary();
       table.string("senha").notNullable();
-      table.string("logomarca").notNullable();
+      //table.string("logomarca").notNullable();
       table.string("anexo_cert").notNullable();
       table.string("senha_cert").notNullable();
       table.string("nome_fantasia").notNullable();
@@ -16,13 +16,13 @@ exports.up = function(knex) {
       table.string("bairro").notNullable();
       table.string("uf").notNullable();
       table.string("whatsapp").notNullable();
-      table.string("email").notNullable();
       table.string("cidade").notNullable();
       table.string("contato").notNullable();
       table.string("email").notNullable();
-      table.integer("login").checkLength(">=", 8);
-  
+      //table.string("login").notNullable();
+      
       table.unique(["email"], {indexName: 'email_unique', useConstraint: true})
+
     });
   };
   
@@ -31,5 +31,5 @@ exports.up = function(knex) {
    * @returns { Promise<void> }
    */
   exports.down = function(knex) {
-    return knex.schema.dropTable("empresa");
+    return knex.schema.dropTable("empresas");
   }; 
